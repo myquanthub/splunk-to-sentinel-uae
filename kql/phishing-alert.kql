@@ -1,0 +1,6 @@
+SigninLogs
+| where ResultType == 0
+| where IPAddress has "malicious-ip"
+| extend Country = tostring(geo_info_from_ip_address(IPAddress).country)
+| where Country in ("AE", "SA", "QA")
+| project TimeGenerated, UserPrincipalName, IPAddress, Country
