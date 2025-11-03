@@ -60,3 +60,5 @@ kqlSigninLogs
 Quick Deploy
 bashterraform init
 terraform apply -auto-approve
+
+![Deployed Sentinel in UAE North](sentinel-deployed.png)
