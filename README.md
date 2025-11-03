@@ -80,3 +80,20 @@ Data Residency: uaenorth
 Automation: Terraform (IaC)
 Detection: KQL rule (GCC phishing)
 ![Deployed Sentinel in UAE North](sentinel-deployed.png)
+
+---
+
+## PROOF OF DEPLOYMENT
+
+### 1. Terraform Success
+![Terraform](terraform-success.png)
+
+### 2. Sentinel in UAE North
+![UAE North](sentinel-uae-north.png)
+
+### 3. Live KQL Rule
+![KQL Rule](sentinel-kql-rule.png)
+
+---
+
+**NESA AM-03 | Deployed in 60 seconds | UAE North**
