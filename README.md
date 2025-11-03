@@ -86,13 +86,13 @@ Detection: KQL rule (GCC phishing)
 ## PROOF OF DEPLOYMENT
 
 ### 1. Terraform Success
-![Terraform](terraform-success.png.jpg)
+![Terraform](terraform-success.png)
 
 ### 2. Sentinel in UAE North
-![UAE North](sentinel-uae-north.png.jpg)
+![UAE North](sentinel-uae-north.png)
 
 ### 3. Live KQL Rule
-![KQL Rule](sentinel-kql-rule.png.jpg)
+![KQL Rule](sentinel-kql-rule.png)
 
 ---
 
