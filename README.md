@@ -61,4 +61,22 @@ Quick Deploy
 bashterraform init
 terraform apply -auto-approve
 
+---
+
+## DEPLOYED SUCCESSFULLY!
+```bash
+terraform apply -auto-approve
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+
+Azure Resources Created:
+
+sentinel-uae-north-rg → UAE North
+sentinel-law-uae → Log Analytics Workspace
+Microsoft Sentinel → Enabled
+
+NESA AM-03 Compliance:
+
+Data Residency: uaenorth
+Automation: Terraform (IaC)
+Detection: KQL rule (GCC phishing)
 ![Deployed Sentinel in UAE North](sentinel-deployed.png)
