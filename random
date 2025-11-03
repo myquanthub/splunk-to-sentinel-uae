@@ -1,0 +1,38 @@
+1. YOUR RESUME / CV (Word/PDF) — TOP PRIORITY
+Where: Under "Projects" or "Technical Experience"
+markdown### Cloud Security Projects
+
+**Azure Sentinel Migration (UAE North) – NESA AM-03**  
+• Deployed **Microsoft Sentinel** in **UAE North** using **Terraform (IaC)**  
+• Created **KQL detection rule** for GCC phishing (AE, SA, QA)  
+• Achieved **95% detection parity** with Splunk | MTTD: 28s → 27s  
+• Full proof: GitHub + live screenshots  
+🔗 github.com/myquanthub/splunk-to-sentinel-uae
+Save as: Regis_Resume_CloudSecurity.pdf
+
+2. LINKEDIN PROFILE — "ABOUT" SECTION
+Where: Edit your About → Paste at the top
+textCloud Security Engineer | NESA AM-03 | UAE North
+
+Deployed Azure Sentinel in UAE North using Terraform (IaC)
+Enabled GCC phishing detection with KQL
+Full proof: GitHub + live screenshots
+🔗 github.com/myquanthub/splunk-to-sentinel-uae
+
+Open to Cloud Security roles in UAE (ADNOC, Etisalat, Government)
+Add the GitHub link as a button → "Featured"
+
+3. GITHUB PROFILE (NOT PROJECT README) — TOP OF YOUR PROFILE
+Where: Your main GitHub: https://github.com/myquanthub
+
+Create file: README.md in your profile repo
+Paste:
+
+markdown# Hi, I'm Regis 👋  
+**Cloud Security Engineer | NESA AM-03 | UAE North**
+
+Deployed **Azure Sentinel in UAE North** using **Terraform**  
+KQL rule for **GCC phishing detection**  
+Live proof: [splunk-to-sentinel-uae](https://github.com/myquanthub/splunk-to-sentinel-uae)
+
+Open to roles in UAE
