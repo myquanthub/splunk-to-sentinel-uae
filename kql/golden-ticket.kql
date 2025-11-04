@@ -1,0 +1,5 @@
+SecurityEvent
+| where EventID == 4769  // Kerberos service ticket
+| where TicketOptions == "0x40810000"  // Forwardable + Renewable
+| where TicketEncryptionType == "0x12"  // AES256
+| project TimeGenerated, Account, ServiceName
