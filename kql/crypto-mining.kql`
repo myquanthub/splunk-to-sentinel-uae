@@ -1,0 +1,6 @@
+Perf
+| where ObjectName == "Processor" and CounterName == "% Processor Time"
+| where CounterValue > 90
+| summarize avg_cpu = avg(CounterValue) by Computer, bin(TimeGenerated, 5m)
+| where avg_cpu > 85
+| project TimeGenerated, Computer, avg_cpu
