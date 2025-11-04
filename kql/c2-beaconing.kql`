@@ -1,0 +1,5 @@
+AzureNetworkAnalytics_CL
+| where OperationName == "NetworkFlow"
+| summarize interval = max(TimeGenerated) - min(TimeGenerated), count() by SourceIP, DestinationIP
+| where count_ > 50 and interval < 300  // >50 connections in <5 mins
+| project SourceIP, DestinationIP, count_, interval
