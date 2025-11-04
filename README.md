@@ -11,32 +11,42 @@
 |---------|----------|
 | AM-03   | KQL queries + scheduled analytics |
 
+## Terraform (UAE North)
+
+```hcl
+provider "azurerm" {
+  features {}
+  alias = "uae"
+  subscription_id = "your-sub-id"
+}
+
+resource "azurerm_resource_group" "rg" {
+  name     = "sentinel-uae-rg"
+  location = "uaenorth"
+}
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
-## KQL Detection Rules (20 Total) – NESA Ultimate Playbook
+
+## KQL Detection Rules (15 Total) – NESA Enterprise Playbook
 
 | # | Rule | Threat | Severity | File |
 |---|------|--------|----------|------|
-| 1 | GCC Phishing | Malicious login | High | `phishing-alert.kql` |
-| 2 | Brute Force | Failed logins | High | `brute-force.kql` |
-| 3 | Privilege Escalation | Admin rights | Critical | `privilege-escalation.kql` |
-| 4 | Lateral Movement | RDP abuse | High | `lateral-movement.kql` |
-| 5 | Suspicious PowerShell | Encoded/Bypass | Critical | `powershell-suspicious.kql` |
-| 6 | Data Exfil | >100MB to GCC | High | `data-exfil.kql` |
-| 7 | DNS Tunneling | Long queries | High | `dns-tunneling.kql` |
-| 8 | C2 Beaconing | High frequency | Critical | `c2-beaconing.kql` |
-| 9 | Golden Ticket | Kerberos abuse | Critical | `golden-ticket.kql` |
-| 10 | Ransomware | File encryption | Critical | `ransomware.kql` |
-| 11 | Cloud Admin | Role assignment | High | `cloud-admin.kql` |
-| 12 | Impossible Travel | Geo anomaly | High | `impossible-travel.kql` |
-| 13 | MFA Bypass | Single factor | Critical | `mfa-bypass.kql` |
-| 14 | Graph API | Suspicious app | High | `graph-api.kql` |
-| 15 | Log Cleared | Event 1102 | Critical | `log-cleared.kql` |
-| 16 | Blob Public | Public exposure | High | `blob-public.kql` |
-| 17 | SQL Injection | Web attack | Critical | `sql-injection.kql` |
-| 18 | Crypto Mining | High CPU | High | `crypto-mining.kql` |
-| 19 | Scheduled Task | Persistence | High | `scheduled-task.kql` |
-| 20 | LOLBins | Evasion | High | `lolbins.kql` |
+| 1 | GCC Phishing | Successful login from malicious IP in AE/SA/QA | High | `phishing-alert.kql` |
+| 2 | Brute Force | >10 failed logins in 5 mins | High | `brute-force.kql` |
+| 3 | Privilege Escalation | Special privileges assigned to user | Critical | `privilege-escalation.kql` |
+| 4 | Lateral Movement | RDP logon from machine account (>5) | High | `lateral-movement.kql` |
+| 5 | Suspicious PowerShell | EncodedCommand or Bypass in command line | Critical | `powershell-suspicious.kql` |
+| 6 | Data Exfiltration | >100 MB outbound to GCC countries | High | `data-exfil.kql` |
+| 7 | DNS Tunneling | DNS query length >100 chars (>20 in 5 mins) | High | `dns-tunneling.kql` |
+| 8 | C2 Beaconing | >50 connections in <5 mins to same IP | Critical | `c2-beaconing.kql` |
+| 9 | Golden Ticket | Kerberos ticket with AES256 + Forwardable | Critical | `golden-ticket.kql` |
+| 10 | Ransomware | File creation with .locky/.crypt/.encrypted | Critical | `ransomware.kql` |
+| 11 | Cloud Admin | Azure AD role assignment by user | High | `cloud-admin.kql` |
+| 12 | Impossible Travel | Login from 2 countries in <30 mins | High | `impossible-travel.kql` |
+| 13 | MFA Bypass | Successful login with single-factor auth | Critical | `mfa-bypass.kql` |
+| 14 | Suspicious Graph API | Unknown app calling Microsoft Graph | High | `graph-api.kql` |
+| 15 | Log Cleared | Security event log cleared (Event ID 1102) | Critical | `log-cleared.kql` |
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -137,5 +147,6 @@ Detection: KQL rule (GCC phishing)
 ![KQL Rule](sentinel-kql-rule.png)
 
 ---
-
+Cloud SOC Engineer | NESA AM-03 Enterprise Playbook
+🔗 github.com/myquanthub/splunk-to-sentinel-uae
 
