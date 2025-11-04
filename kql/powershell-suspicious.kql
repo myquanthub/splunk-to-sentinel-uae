@@ -1,0 +1,5 @@
+SecurityEvent
+| where EventID == 4688  // Process creation
+| where Process contains "powershell"
+| where CommandLine contains "encodedcommand" or CommandLine contains "bypass"
+| project TimeGenerated, Computer, Account, CommandLine
