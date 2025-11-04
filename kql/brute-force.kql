@@ -1,0 +1,5 @@
+SigninLogs
+| where ResultType == 5156  // Failed login
+| summarize failed_count = count() by UserPrincipalName, bin(TimeGenerated, 5m)
+| where failed_count > 10
+| project TimeGenerated, UserPrincipalName, failed_count
