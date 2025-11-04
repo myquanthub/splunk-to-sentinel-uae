@@ -1,0 +1,7 @@
+SigninLogs
+| extend Country = tostring(geo_info_from_ip_address(IPAddress).country)
+| summarize Locations = make_set(Country), Times = make_set(TimeGenerated) by UserPrincipalName
+| where array_length(Locations) > 1
+| extend TravelTime = datetime_diff('minute', max_of(Times), min_of(Times))
+| where TravelTime < 30  // <30 mins between countries
+| project UserPrincipalName, Locations, TravelTime
