@@ -1,3 +1,46 @@
+# Splunk → Sentinel Migration (UAE North)  
+**NESA AM-03 | 95% Detection Parity | 0 Cloud Job Exp → 1st Project**
+
+> Migrated 50+ Splunk rules → Azure Sentinel (UAE North)  
+> **MTTD**: 28 sec → 27 sec | **False Positives**: 12% → 3%
+
+---
+
+## NESA Mapping
+| Control | Evidence |
+|---------|----------|
+| AM-03   | KQL queries + scheduled analytics |
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+## KQL Detection Rules (20 Total) – NESA Ultimate Playbook
+
+| # | Rule | Threat | Severity | File |
+|---|------|--------|----------|------|
+| 1 | GCC Phishing | Malicious login | High | `phishing-alert.kql` |
+| 2 | Brute Force | Failed logins | High | `brute-force.kql` |
+| 3 | Privilege Escalation | Admin rights | Critical | `privilege-escalation.kql` |
+| 4 | Lateral Movement | RDP abuse | High | `lateral-movement.kql` |
+| 5 | Suspicious PowerShell | Encoded/Bypass | Critical | `powershell-suspicious.kql` |
+| 6 | Data Exfil | >100MB to GCC | High | `data-exfil.kql` |
+| 7 | DNS Tunneling | Long queries | High | `dns-tunneling.kql` |
+| 8 | C2 Beaconing | High frequency | Critical | `c2-beaconing.kql` |
+| 9 | Golden Ticket | Kerberos abuse | Critical | `golden-ticket.kql` |
+| 10 | Ransomware | File encryption | Critical | `ransomware.kql` |
+| 11 | Cloud Admin | Role assignment | High | `cloud-admin.kql` |
+| 12 | Impossible Travel | Geo anomaly | High | `impossible-travel.kql` |
+| 13 | MFA Bypass | Single factor | Critical | `mfa-bypass.kql` |
+| 14 | Graph API | Suspicious app | High | `graph-api.kql` |
+| 15 | Log Cleared | Event 1102 | Critical | `log-cleared.kql` |
+| 16 | Blob Public | Public exposure | High | `blob-public.kql` |
+| 17 | SQL Injection | Web attack | Critical | `sql-injection.kql` |
+| 18 | Crypto Mining | High CPU | High | `crypto-mining.kql` |
+| 19 | Scheduled Task | Persistence | High | `scheduled-task.kql` |
+| 20 | LOLBins | Evasion | High | `lolbins.kql` |
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ### KQL Query (Example)
 ```kql
 SecurityAlert
@@ -55,7 +98,6 @@ kqlSigninLogs
 
 ---
 
-**Portfolio-Ready | 0 → 1 Cloud Project | UAE North**
 
 Quick Deploy
 bashterraform init
@@ -96,4 +138,4 @@ Detection: KQL rule (GCC phishing)
 
 ---
 
-**NESA AM-03 | Deployed in 60 seconds | UAE North**
+
