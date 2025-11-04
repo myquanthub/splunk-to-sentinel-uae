@@ -1,0 +1,5 @@
+AzureNetworkAnalytics_CL
+| where OperationName == "NetworkFlow"
+| where BytesSent_d > 100000000  // >100 MB
+| where DestinationIP has "AE" or DestinationIP has "SA" or DestinationIP has "QA"
+| project TimeGenerated, SourceIP, DestinationIP, BytesSent_d
