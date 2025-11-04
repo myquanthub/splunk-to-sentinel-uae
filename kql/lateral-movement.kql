@@ -1,0 +1,7 @@
+SecurityEvent
+| where EventID == 4624  // Successful logon
+| where LogonTypeName == "Network" or LogonTypeName == "RemoteInteractive"
+| where Account contains "$"  // Machine account
+| summarize count() by Computer, Account
+| where count_ > 5
+| project TimeGenerated, Computer, Account, count_
