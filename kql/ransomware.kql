@@ -1,0 +1,5 @@
+DeviceFileEvents
+| where FileName endswith ".locky" or FileName endswith ".crypt" or FileName endswith ".encrypted"
+| summarize count() by Computer, bin(TimeGenerated, 1m)
+| where count_ > 5
+| project TimeGenerated, Computer, FileName, count_
