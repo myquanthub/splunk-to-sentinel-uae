@@ -1,0 +1,5 @@
+SigninLogs
+| where ResultType == 0  // Success
+| where AuthenticationRequirement == "singleFactorAuthentication"
+| where UserType == "Member"
+| project TimeGenerated, UserPrincipalName, IPAddress
