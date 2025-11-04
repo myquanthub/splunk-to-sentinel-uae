@@ -1,0 +1,5 @@
+AuditLogs
+| where OperationName == "Add member to role"
+| where InitiatedBy.user.userPrincipalName != ""
+| where TargetResources[0].type == "Role"
+| project TimeGenerated, InitiatedBy.user.userPrincipalName, TargetResources[0].displayName
