@@ -1,0 +1,4 @@
+SecurityEvent
+| where EventID == 4672  // Special privileges assigned
+| where AccountType == "User"
+| project TimeGenerated, Account, Computer
