@@ -1,0 +1,7 @@
+DnsEvents
+| where QueryType == "A" or QueryType == "AAAA"
+| extend QueryLength = strlen(Name)
+| where QueryLength > 100
+| summarize count() by Computer, bin(TimeGenerated, 5m)
+| where count_ > 20
+| project TimeGenerated, Computer, Name, QueryLength
