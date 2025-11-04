@@ -1,0 +1,4 @@
+AzureDiagnostics
+| where ResourceType == "SQLDATABASES"
+| where Message contains "SELECT" and Message contains "1=1" or Message contains "DROP"
+| project TimeGenerated, Resource, Message
